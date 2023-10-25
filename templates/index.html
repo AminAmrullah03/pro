@@ -19,7 +19,6 @@
 
     <script>
         $(document).ready(function () {
-            // alert('Fully loaded');
             listing();
             bsCustomFileInput.init();
         });
@@ -35,7 +34,8 @@
                         let title = articles[i]['title'];
                         let content = articles[i]['content'];
                         let file = articles[i]['file'];
-                        let profile = articles[i]['profile']
+                        let time = articles[i]['time'] || '????.??.??';
+                        let profile = articles[i]['profile'];
                         let temp_html = `<div class="col-4">
                 <div class="card">
                     <img src="../${file}" class="card-img-top" alt="...">
@@ -43,7 +43,7 @@
                         <img src="../${profile}" width="80" class="rounded-circle" alt="...">
                         <h5 class="card-title">${title}</h5>
                         <p class="card-text">${content}</p>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">${time}</h6>
                     </div>
                 </div>
             </div>`;
@@ -99,7 +99,7 @@
                     <input type="file" class="form-control" id="image">
                 </div>
                 <div class="input-group mb-3 custom-file">
-                    <input type="file" class="form-control" id="profile">
+                    <input type="file" class="form-control" id="profile" placeholder="choose profile">
                 </div>
                 <div class="input-group mb-3">
                     <input type="text" class="form-control" id="image-title" placeholder="Image title goes here"
